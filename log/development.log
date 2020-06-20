@@ -1,0 +1,1839 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to CreateBooks (20190804132100)
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "author" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190804132100_create_books.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190804132100"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to DeviseCreateUsers (20190809151412)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190809151412_devise_create_users.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20190809151412_devise_create_users.rb:38
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20190809151412_devise_create_users.rb:39
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190809151412"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to AddUserIdToBooks (20190814131027)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "books" ADD "user_id" integer[0m
+  ↳ db/migrate/20190814131027_add_user_id_to_books.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_books_on_user_id" ON "books" ("user_id")[0m
+  ↳ db/migrate/20190814131027_add_user_id_to_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190814131027"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to CreateCategories (20190814135828)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190814135828_create_categories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190814135828"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to AddCategoryIdToBooks (20190814140000)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "books" ADD "category_id" integer[0m
+  ↳ db/migrate/20190814140000_add_category_id_to_books.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_books_on_category_id" ON "books" ("category_id")[0m
+  ↳ db/migrate/20190814140000_add_category_id_to_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190814140000"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to AddImageToBooks (20190818070212)
+  [1m[35m (0.8ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "books" ADD "image" varchar[0m
+  ↳ db/migrate/20190818070212_add_image_to_books.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190818070212"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to CreateReviews (20190901075011)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "rating" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20190901075011_create_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190901075011"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to AddUserIdToReview (20190901075111)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "reviews" ADD "user_id" integer[0m
+  ↳ db/migrate/20190901075111_add_user_id_to_review.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  ↳ db/migrate/20190901075111_add_user_id_to_review.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190901075111"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Migrating to AddBookIdToReviews (20190901104227)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "reviews" ADD "book_id" integer[0m
+  ↳ db/migrate/20190901104227_add_book_id_to_reviews.rb:3
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE  INDEX "index_reviews_on_book_id" ON "reviews" ("book_id")[0m
+  ↳ db/migrate/20190901104227_add_book_id_to_reviews.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190901104227"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-05 11:23:16.612533"], ["updated_at", "2020-03-05 11:23:16.612533"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/rake-12.3.3/lib/rake/task.rb:273
+Started GET "/" for ::1 at 2020-03-05 03:24:24 -0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (18.4ms)
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 8272ms (Views: 8183.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-03-05 03:26:44 -0800
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (157.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 289ms (Views: 276.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/users" for ::1 at 2020-03-05 03:26:56 -0800
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OiSitIYPgzdDpng8STYTPn/y18Pa4jZ2NroeQ2zNH200YziU7KiV8Zo7SKNsPhgipKExcHuOW7y3rMfTzTZS4w==", "user"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/devise-4.6.2/app/controllers/devise/registrations_controller.rb:19
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/devise-4.6.2/app/controllers/devise/registrations_controller.rb:19
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "admin@admin.com"], ["encrypted_password", "$2a$11$RB/YWaydVg.oxCi9B7gpvO1uGnA6h3XwU3sbwGRDlZYorwjPEExHm"], ["created_at", "2020-03-05 11:26:58.238498"], ["updated_at", "2020-03-05 11:26:58.238498"]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/devise-4.6.2/app/controllers/devise/registrations_controller.rb:19
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/devise-4.6.2/app/controllers/devise/registrations_controller.rb:19
+Redirected to http://localhost:3001/
+Completed 302 Found in 1715ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:26:58 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 115ms (Views: 111.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books/new" for ::1 at 2020-03-05 03:27:03 -0800
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/books_controller.rb:9
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (22.4ms)
+  Rendered books/new.html.erb within layouts/application (24.8ms)
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 232ms (Views: 166.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/books" for ::1 at 2020-03-05 03:28:10 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XYWRl3zZX3PS36AzHFsK3/IjxY812//rGP1X5u3JHN+wWWbGTX8L1Z1a+29MKrose0HxkpGyQXeU1KVvGt2WcA==", "category_id"=>"", "book"=>{"title"=>"Book1", "description"=>"this is book 1", "author"=>"auther 1"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (2.0ms)
+  Rendered books/new.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    1: <%= simple_form_for @book, :html => { :multipart => true} do |b| %>
+    2: 	
+    3: 	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category") %>
+    4: 	<%=b.input :title %>
+    5: 	<%=b.input :description %>
+    6: 	<%=b.input :author %>
+  
+app/views/books/_form.html.erb:3:in `block in _app_views_books__form_html_erb__613734562740416010_70245762845080'
+app/views/books/_form.html.erb:1:in `_app_views_books__form_html_erb__613734562740416010_70245762845080'
+app/views/books/new.html.erb:6:in `_app_views_books_new_html_erb__1233688854025178558_70245762819000'
+app/controllers/books_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "1st category"], ["created_at", "2020-03-05 11:29:04.975769"], ["updated_at", "2020-03-05 11:29:04.975769"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/books/new" for ::1 at 2020-03-05 03:29:20 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/books_controller.rb:9
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (163.2ms)
+  Rendered books/new.html.erb within layouts/application (187.6ms)
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 985ms (Views: 787.8ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/books" for ::1 at 2020-03-05 03:29:41 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUqJlm0JC7hTazim50tm/Vq4gAS4ty+azRhznCvolQNlnGbvNnf+3ky9ELWjmWjK6yn+LOOCwRZhxOJbSGZp5w==", "category_id"=>"1", "book"=>{"title"=>"Book 1 title", "description"=>"Book 1 description", "author"=>"auther 1"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "description", "author", "created_at", "updated_at", "user_id", "category_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Book 1 title"], ["description", "Book 1 description"], ["author", "auther 1"], ["created_at", "2020-03-05 11:29:41.241044"], ["updated_at", "2020-03-05 11:29:41.241044"], ["user_id", 1], ["category_id", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3001/
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:29:41 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (3.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 4.2ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249688160460'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249688160460'
+Started POST "/books" for ::1 at 2020-03-05 03:30:29 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUqJlm0JC7hTazim50tm/Vq4gAS4ty+azRhznCvolQNlnGbvNnf+3ky9ELWjmWjK6yn+LOOCwRZhxOJbSGZp5w==", "category_id"=>"1", "book"=>{"title"=>"Book 1 title", "description"=>"Book 1 description", "author"=>"auther 1", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fc8926b7a08 @tempfile=#<Tempfile:/var/folders/xt/vbnqrwwx6ys223_k3mtr33bw0000gn/T/RackMultipart20200305-98673-4yywrf.jpeg>, @original_filename="Book1.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[image]\"; filename=\"Book1.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "description", "author", "created_at", "updated_at", "user_id", "category_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Book 1 title"], ["description", "Book 1 description"], ["author", "auther 1"], ["created_at", "2020-03-05 11:30:33.018984"], ["updated_at", "2020-03-05 11:30:33.018984"], ["user_id", 1], ["category_id", 1], ["image", "Book1.jpeg"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3001/
+Completed 302 Found in 3609ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:30:33 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249692883100'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249692883100'
+Started POST "/books" for ::1 at 2020-03-05 03:30:53 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YUqJlm0JC7hTazim50tm/Vq4gAS4ty+azRhznCvolQNlnGbvNnf+3ky9ELWjmWjK6yn+LOOCwRZhxOJbSGZp5w==", "category_id"=>"1", "book"=>{"title"=>"Book 1 title", "description"=>"Book 1 description", "author"=>"auther 1"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "description", "author", "created_at", "updated_at", "user_id", "category_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Book 1 title"], ["description", "Book 1 description"], ["author", "auther 1"], ["created_at", "2020-03-05 11:30:53.918539"], ["updated_at", "2020-03-05 11:30:53.918539"], ["user_id", 1], ["category_id", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3001/
+Completed 302 Found in 28ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:30:53 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (15.9ms)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249713365620'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249713365620'
+Started GET "/" for ::1 at 2020-03-05 03:31:11 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249692737380'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249692737380'
+Started GET "/" for ::1 at 2020-03-05 03:31:16 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<!-- <%= image_tag book.image_url(:book_index), :class => "book-index" %> -->
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249713057040'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249713057040'
+Started GET "/" for ::1 at 2020-03-05 03:31:20 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 113ms (Views: 109.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:31:23 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (4.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:39:01 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (23.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___3561601001395980142_70249687466640'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___3561601001395980142_70249687466640'
+Started GET "/" for ::1 at 2020-03-05 03:39:36 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (33.4ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146524425900'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146524425900'
+Started GET "/books/new" for ::1 at 2020-03-05 03:39:41 -0800
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/books_controller.rb:9
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (63.8ms)
+  Rendered books/new.html.erb within layouts/application (66.5ms)
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 560ms (Views: 499.8ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:39:45 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146558284660'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146558284660'
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mBook Destroy (2.1ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 3]]
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Destroy (1.3ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 2]]
+  [1m[35m (9.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/books/new" for ::1 at 2020-03-05 03:41:06 -0800
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/books_controller.rb:9
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (48.9ms)
+  Rendered books/new.html.erb within layouts/application (51.2ms)
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 200ms (Views: 192.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/books" for ::1 at 2020-03-05 03:41:20 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vSZk2pDxO23T8suPzjJy4ejhiDlXq1IeX2reR9rRUoi58Iujy4/OC8wk45yK4HzWWXD2EQyevJLztk+AuV+ubA==", "category_id"=>"1", "book"=>{"title"=>"title", "description"=>"des", "author"=>"asdf", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9885a66830 @tempfile=#<Tempfile:/var/folders/xt/vbnqrwwx6ys223_k3mtr33bw0000gn/T/RackMultipart20200305-1935-m7ia6w.jpeg>, @original_filename="Book1.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[image]\"; filename=\"Book1.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (1.6ms)[0m  [1m[32mINSERT INTO "books" ("title", "description", "author", "created_at", "updated_at", "user_id", "category_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "title"], ["description", "des"], ["author", "asdf"], ["created_at", "2020-03-05 11:41:21.889155"], ["updated_at", "2020-03-05 11:41:21.889155"], ["user_id", 1], ["category_id", 1], ["image", "Book1.jpeg"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3001/
+Completed 302 Found in 1799ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:41:21 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146554844080'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146554844080'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-03-05 03:41:39 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146556645500'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146556645500'
+Started GET "/" for ::1 at 2020-03-05 03:42:13 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url, :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146526657700'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146526657700'
+Started GET "/" for ::1 at 2020-03-05 03:42:25 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb___2817170510300886361_70146531872520'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb___2817170510300886361_70146531872520'
+Started GET "/" for ::1 at 2020-03-05 03:45:01 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (56.1ms)
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url(:book_index), :class => "book-index" %>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb__1152781263195329343_70157173971760'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb__1152781263195329343_70157173971760'
+Started GET "/" for ::1 at 2020-03-05 03:46:54 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (12.3ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url, :class => "book-index"%>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb__1152781263195329343_70157176072160'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb__1152781263195329343_70157176072160'
+Started GET "/" for ::1 at 2020-03-05 03:47:00 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `to_model' for #<ImageUploader:0x00007f9d7b0df1e0>
+Did you mean?  to_xml):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image, :class => "book-index"%>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb__1152781263195329343_70157200593500'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb__1152781263195329343_70157200593500'
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-03-05 03:47:38 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url, :class => "book-index"%>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb__1152781263195329343_70157202125960'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb__1152781263195329343_70157202125960'
+Started GET "/books/new" for ::1 at 2020-03-05 03:49:07 -0800
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/books_controller.rb:9
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/_form.html.erb (64.9ms)
+  Rendered books/new.html.erb within layouts/application (68.0ms)
+  [1m[36mCACHE Category Load (0.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 725ms (Views: 643.3ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/books" for ::1 at 2020-03-05 03:49:21 -0800
+Processing by BooksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"diXWLWlBAHntINKAsktGOnLZR8AZTUXlR4RDIb8icWhy8zlUMj/1H/L2+pP2mUgNw0g56EJ4q2nrWNLm3KyNjA==", "category_id"=>"1", "book"=>{"title"=>"book 2", "description"=>"book 2 des", "author"=>"auth", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9d7b5d7788 @tempfile=#<Tempfile:/var/folders/xt/vbnqrwwx6ys223_k3mtr33bw0000gn/T/RackMultipart20200305-22022-2c1ki9.jpeg>, @original_filename="Book1.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"book[image]\"; filename=\"Book1.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO "books" ("title", "description", "author", "created_at", "updated_at", "user_id", "category_id", "image") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "book 2"], ["description", "book 2 des"], ["author", "auth"], ["created_at", "2020-03-05 11:49:21.535524"], ["updated_at", "2020-03-05 11:49:21.535524"], ["user_id", 1], ["category_id", 1], ["image", "Book1.jpeg"]]
+  ↳ app/controllers/books_controller.rb:15
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:15
+Redirected to http://localhost:3001/
+Completed 302 Found in 439ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:49:21 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+     9: 		<% @books.each do |book| %>
+    10: 			<div class="col-md-3">
+    11: 				<a href="/books/<%= book.id %>">
+    12: 					<%= image_tag book.image_url, :class => "book-index"%>
+    13: 				</a>
+    14: 			</div>
+    15: 		<% end %>
+  
+app/views/books/index.html.erb:12:in `block in _app_views_books_index_html_erb__1152781263195329343_70157178233200'
+app/views/books/index.html.erb:9:in `_app_views_books_index_html_erb__1152781263195329343_70157178233200'
+Started GET "/" for ::1 at 2020-03-05 03:51:28 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (13.1ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Book:0x00007f9d7fba6520>):
+    14: 					<td>
+    15: 						<div class="col-md-3">
+    16: 							<a href="/books/<%= book.id %>">
+    17: 								<%= book.name %>
+    18: 							</a>
+    19: 						</div>
+    20: 					</td>
+  
+app/views/books/index.html.erb:17:in `block in _app_views_books_index_html_erb__1152781263195329343_70157214704600'
+app/views/books/index.html.erb:12:in `_app_views_books_index_html_erb__1152781263195329343_70157214704600'
+Started GET "/" for ::1 at 2020-03-05 03:51:36 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 112ms (Views: 108.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:51:57 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 178ms (Views: 174.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:52:12 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:11
+  Rendered books/index.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 130ms (Views: 127.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:52:25 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 74ms (Views: 70.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:52:49 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:13
+  Rendered books/index.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 71ms (Views: 68.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:52:51 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:13
+  Rendered books/index.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 202ms (Views: 196.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:53:31 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 81ms (Views: 77.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:53:33 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:12
+  Rendered books/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 200ms (Views: 192.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:55:50 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:13
+  Rendered books/index.html.erb within layouts/application (17.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 292ms (Views: 275.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:56:41 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 71ms (Views: 68.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:56:46 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (5.6ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 135ms (Views: 89.2ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:56:52 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (12.0ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 121ms (Views: 115.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:56:58 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (12.3ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 100ms (Views: 95.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:57:00 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (16.2ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 100ms (Views: 96.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books/1" for ::1 at 2020-03-05 03:57:01 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 1]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  Rendered books/show.html.erb within layouts/application (3.4ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.):
+    1: <div class ="row">
+    2: 	<div class= "col-md-4">
+    3: 		<%= image_tag @book.image_url(:book_show), :class => 'book-show' %>
+    4: 	</div>
+    5: 	<div class="col-md-8">
+    6: 		
+  
+app/views/books/show.html.erb:3:in `_app_views_books_show_html_erb___1625134007400396330_70157187094960'
+  [1m[36mBook Load (3.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" ORDER BY "books"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mBook Destroy (3.3ms)[0m  [1m[31mDELETE FROM "books" WHERE "books"."id" = ?[0m  [["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-03-05 03:57:19 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (7.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 222ms (Views: 218.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:57:20 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (6.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 178ms (Views: 171.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:57:21 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (20.8ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 156ms (Views: 148.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:57:24 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (14.4ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 144ms (Views: 138.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:57:27 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (8.6ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 115ms (Views: 108.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:58:10 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (5.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 165ms (Views: 159.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:58:18 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (4.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 123ms (Views: 120.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:58:27 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:14
+  Rendered books/index.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 91ms (Views: 87.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:58:45 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:13
+  Rendered books/index.html.erb within layouts/application (4.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:58:48 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (7.2ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 117ms (Views: 109.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:58:52 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (10.8ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 107ms (Views: 102.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:58:55 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (12.7ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 166ms (Views: 159.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 03:59:20 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 113ms (Views: 110.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 03:59:24 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (9.2ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 75ms (Views: 69.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 03:59:26 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (8.9ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 99ms (Views: 94.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 04:03:46 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (17.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 132ms (Views: 123.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/books/5/reviews/new" for ::1 at 2020-03-05 04:04:06 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"book_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/_form.html.erb (14.2ms)
+  Rendered reviews/new.html.erb within layouts/application (16.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 181ms (Views: 152.8ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/books/5/reviews" for ::1 at 2020-03-05 04:04:12 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BqhsJKkZpOxA/8jbuMhz8kHxi/lDks9IB+/z85xNEWWOcR6VmGWkLNHwnWBY09r7hT5W/XUS9wrTo9oT9IicQg==", "review"=>{"rating"=>"4", "comment"=>"Googd"}, "commit"=>"Create Review", "book_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mReview Create (2.6ms)[0m  [1m[32mINSERT INTO "reviews" ("rating", "comment", "created_at", "updated_at", "user_id", "book_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rating", 4], ["comment", "Googd"], ["created_at", "2020-03-05 12:04:12.291006"], ["updated_at", "2020-03-05 12:04:12.291006"], ["user_id", 1], ["book_id", 5]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:14
+Redirected to http://localhost:3001/books/5
+Completed 302 Found in 31ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 04:04:12 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reviews/_review.html.erb:9
+  Rendered collection of reviews/_review.html.erb [1 times] (2.5ms)
+  Rendered books/show.html.erb within layouts/application (11.0ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 124ms (Views: 114.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/books/5/reviews/1/edit" for ::1 at 2020-03-05 04:04:19 -0800
+Processing by ReviewsController#edit as HTML
+  Parameters: {"book_id"=>"5", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:50
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/policies/review_policy.rb:8
+  Rendering reviews/edit.html.erb within layouts/application
+  Rendered reviews/_form.html.erb (8.3ms)
+  Rendered reviews/edit.html.erb within layouts/application (10.0ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 148ms (Views: 130.0ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/books/5/reviews/1" for ::1 at 2020-03-05 04:04:24 -0800
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bmP28Oy8KKjTEPTskVWBquNdZK4NtejojcKW//OkZsB6DgJP5LzhaZDRICX6caKCmF5i16Sws0GLPovSxgIV5w==", "review"=>{"rating"=>"", "comment"=>"Good"}, "commit"=>"Update Review", "book_id"=>"5", "id"=>"1"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mReview Update (5.4ms)[0m  [1m[33mUPDATE "reviews" SET "rating" = ?, "comment" = ?, "updated_at" = ? WHERE "reviews"."id" = ?[0m  [["rating", nil], ["comment", "Good"], ["updated_at", "2020-03-05 12:04:24.348421"], ["id", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:26
+Redirected to http://localhost:3001/books/5
+Completed 302 Found in 26ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 04:04:24 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 1.2ms)
+
+
+  
+NoMethodError (undefined method `round' for nil:NilClass):
+  
+app/controllers/books_controller.rb:36:in `show'
+Started PATCH "/books/5/reviews/1" for ::1 at 2020-03-05 04:04:31 -0800
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"950w/qsftRExrieNTvf7UXgL3+I9JXNH1JBI85+72a7zS9+H8GFAdy54D54KJfVmyZqhymYQnct4TNk0/DUlSg==", "review"=>{"rating"=>"4", "comment"=>"Good"}, "commit"=>"Update Review", "book_id"=>"5", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:50
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[36mReview Update (0.7ms)[0m  [1m[33mUPDATE "reviews" SET "rating" = ?, "updated_at" = ? WHERE "reviews"."id" = ?[0m  [["rating", 4], ["updated_at", "2020-03-05 12:04:31.823021"], ["id", 1]]
+  ↳ app/controllers/reviews_controller.rb:26
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:26
+Redirected to http://localhost:3001/books/5
+Completed 302 Found in 29ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 04:04:31 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reviews/_review.html.erb:9
+  Rendered collection of reviews/_review.html.erb [1 times] (2.9ms)
+  Rendered books/show.html.erb within layouts/application (25.5ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 120ms (Views: 104.1ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/books/5/reviews/new" for ::1 at 2020-03-05 04:04:40 -0800
+Processing by ReviewsController#new as HTML
+  Parameters: {"book_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/_form.html.erb (9.3ms)
+  Rendered reviews/new.html.erb within layouts/application (11.3ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 179ms (Views: 174.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/books/5/reviews" for ::1 at 2020-03-05 04:04:45 -0800
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yJS5mQFP179LYtmVWMQOSlvSH3NlAaVdjVxFxJYVVQRATcsoMDPXf9ptjC6436dDnx3Cd1OBnR9ZEGwk/tDYIw==", "review"=>{"rating"=>"1", "comment"=>"Behtar"}, "commit"=>"Create Review", "book_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:46
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[36mReview Create (0.7ms)[0m  [1m[32mINSERT INTO "reviews" ("rating", "comment", "created_at", "updated_at", "user_id", "book_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["rating", 1], ["comment", "Behtar"], ["created_at", "2020-03-05 12:04:45.689163"], ["updated_at", "2020-03-05 12:04:45.689163"], ["user_id", 1], ["book_id", 5]]
+  ↳ app/controllers/reviews_controller.rb:14
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reviews_controller.rb:14
+Redirected to http://localhost:3001/books/5
+Completed 302 Found in 19ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/books/5" for ::1 at 2020-03-05 04:04:45 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reviews/_review.html.erb:9
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/reviews/_review.html.erb:9
+  Rendered collection of reviews/_review.html.erb [2 times] (3.5ms)
+  Rendered books/show.html.erb within layouts/application (10.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 126ms (Views: 116.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2020-03-05 04:05:09 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 100ms (Views: 93.3ms | ActiveRecord: 1.4ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "2nd Category"], ["created_at", "2020-03-05 12:05:33.037834"], ["updated_at", "2020-03-05 12:05:33.037834"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-03-05 04:05:34 -0800
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (7.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 125ms (Views: 118.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/books?category=2nd+Category" for ::1 at 2020-03-05 04:05:37 -0800
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"2nd Category"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "2nd Category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 101ms (Views: 96.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books?category=1st+category" for ::1 at 2020-03-05 04:05:41 -0800
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"1st category"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "1st category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 129ms (Views: 123.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/books?category=2nd+Category" for ::1 at 2020-03-05 04:05:45 -0800
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"2nd Category"}
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "2nd Category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 101ms (Views: 94.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/books?category=1st+category" for ::1 at 2020-03-05 04:05:46 -0800
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"1st category"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "1st category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 107ms (Views: 102.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/books/4" for ::1 at 2020-03-05 04:05:59 -0800
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/controllers/books_controller.rb:33
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 4]]
+  ↳ app/views/books/show.html.erb:13
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/orm_adapter-0.5.0/lib/orm_adapter/adapters/active_record.rb:17
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/books/show.html.erb:17
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered books/show.html.erb within layouts/application (13.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 150ms (Views: 143.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2020-05-28 11:58:16 +0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (128.8ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 546ms (Views: 505.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/books/5" for ::1 at 2020-05-28 11:58:43 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  Rendered collection of reviews/_review.html.erb [2 times] (1.9ms)
+  Rendered books/show.html.erb within layouts/application (9.4ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 176ms (Views: 66.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2020-06-20 19:59:03 +0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (26.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 749ms (Views: 686.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/books/5" for ::1 at 2020-06-20 19:59:09 +0500
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT  "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:67
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/controllers/books_controller.rb:36
+  Rendering books/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."book_id" = ?[0m  [["book_id", 5]]
+  ↳ app/views/books/show.html.erb:13
+  Rendered collection of reviews/_review.html.erb [2 times] (0.6ms)
+  Rendered books/show.html.erb within layouts/application (4.2ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 141ms (Views: 57.2ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2020-06-20 19:59:12 +0500
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (4.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 122ms (Views: 118.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books?category=1st+category" for ::1 at 2020-06-20 19:59:14 +0500
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"1st category"}
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "1st category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 1]]
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (17.1ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 201ms (Views: 196.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books?category=2nd+Category" for ::1 at 2020-06-20 19:59:15 +0500
+Processing by BooksController#index as HTML
+  Parameters: {"category"=>"2nd Category"}
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."name" = ? LIMIT ?[0m  [["name", "2nd Category"], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:26
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."category_id" = ?[0m  [["category_id", 2]]
+  ↳ app/views/books/index.html.erb:4
+  Rendered books/index.html.erb within layouts/application (2.4ms)
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 83ms (Views: 76.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-06-20 20:04:31 +0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/dev/.rvm/gems/ruby-2.6.3/gems/web-console-3.7.0/lib/web_console/middleware.rb:135
+Processing by BooksController#index as HTML
+  Rendering books/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "books"[0m
+  ↳ app/views/books/index.html.erb:4
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT "books".* FROM "books" ORDER BY created_at DESC[0m
+  ↳ app/views/books/index.html.erb:9
+  Rendered books/index.html.erb within layouts/application (25.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/layouts/application.html.erb:40
+Completed 200 OK in 642ms (Views: 612.6ms | ActiveRecord: 2.2ms)
+
+
