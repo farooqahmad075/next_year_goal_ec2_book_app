@@ -11,7 +11,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form', '~> 4.1'
@@ -21,7 +20,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'pundit'
+gem "passenger"
+
 group :development, :test do
+  gem 'puma', '~> 3.11'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
