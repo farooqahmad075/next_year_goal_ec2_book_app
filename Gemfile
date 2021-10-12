@@ -23,7 +23,7 @@ gem 'pundit'
 gem "passenger"
 
 group :development, :test do
-  gem 'puma', '~> 3.11'
+  gem 'puma', '~> 4.3'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
